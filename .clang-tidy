@@ -1,0 +1,16 @@
+Checks: >
+  -*,
+  bugprone-*,
+  google-*,
+  misc-*,
+  modernize-*,
+  performance-*,
+  portability-*,
+  readability-*,
+
+  -google-runtime-references,
+  -misc-non-private-member-variables-in-classes,
+  -readability-braces-around-statements,
+  -readability-magic-numbers,
+ 
+  -google-readability-todo
