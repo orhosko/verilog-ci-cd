@@ -1,6 +1,8 @@
 module our;
-   initial begin
+         initial begin
    $display("Hello World");
+   ;
+   ;
    $finish;
 end
 endmodule
