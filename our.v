@@ -3,6 +3,6 @@ module our;
    $display("Hello World");
    ;
    ;
-   $finish;
+       $finish;
 end
 endmodule
