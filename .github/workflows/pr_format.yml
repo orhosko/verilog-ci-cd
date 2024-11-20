@@ -1,10 +1,11 @@
-# Copyright 2023 Thales DIS
-# Licensed under the Apache License, Version 2.0, see LICENSE for details.
-# SPDX-License-Identifier: Apache-2.0
-
 name: Verible Format
 on:
-  pull_request_target:
+  merge_group:
+    types:
+      - checks_requested
+  pull_request:
+    branches:
+      - "*"
 
 jobs:
   format:
@@ -20,4 +21,4 @@ jobs:
       - uses: chipsalliance/verible-formatter-action@main
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          files: '$(find core -regex ".*\.\(v\|sv\)$" | grep -v "^core/include/.*_config_pkg.sv$")'
+          files: *.v
