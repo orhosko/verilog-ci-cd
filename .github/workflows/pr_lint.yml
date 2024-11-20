@@ -1,10 +1,12 @@
-name: Verible linter example
+name: Verible Linter
+
+  # In order to have automatic reviews on external PRs, you need to change your workflow to trigger on pull_request_target event and manually check out changes from pull request:
 
 on:
   merge_group:
     types:
       - checks_requested
-  pull_request:
+  pull_request_target: 
     branches:
       - "*"
 
@@ -16,7 +18,7 @@ jobs:
       contents: read
       pull-requests: write
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
       - name: Run Verible action
