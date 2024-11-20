@@ -1,7 +1,12 @@
 name: Verible linter example
 
 on:
-  pull_request_target:
+  merge_group:
+    types:
+      - checks_requested
+  pull_request:
+    branches:
+      - "*"
 
 jobs:
   lint:
