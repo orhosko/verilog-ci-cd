@@ -1,9 +1,12 @@
 name: Verible Format
+
+  # In order to have automatic reviews on external PRs, you need to change your workflow to trigger on pull_request_target event and manually check out changes from pull request:
+
 on:
   merge_group:
     types:
       - checks_requested
-  pull_request:
+  pull_request_target:
     branches:
       - "*"
 
@@ -18,7 +21,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
-      - uses: chipsalliance/verible-formatter-action@main
+      - name: Run Verible action
+        uses: chipsalliance/verible-formatter-action@main
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          files: *.v
